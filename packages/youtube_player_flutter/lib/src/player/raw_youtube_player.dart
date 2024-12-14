@@ -202,7 +202,7 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
             ..addJavaScriptHandler(
               handlerName: 'VideoTime',
               callback: (args) {
-                final position = args.first * 1000;
+                final position = (args.first ?? 0) * 1000;
                 final num buffered = args.last ?? 0;
                 controller!.updateValue(
                   controller!.value.copyWith(
